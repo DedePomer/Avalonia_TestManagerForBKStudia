@@ -1,27 +1,22 @@
 ﻿using System;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
+using Avalonia_TestManagerForBKStudia.ViewModels.UserControls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels
 {
-    public partial class MainWindowViewModel : ViewModelBase
+    public partial class MainWindowViewModel : ObservableObject
     {
-        private int _index = 0;
+        private readonly INavigation _navigation;
 
-        [ObservableProperty]
-        private string _greeting = "Welcome to Avalonia!";
+        public ObservableObject CurrentViewModel => new MainMenuUserControl(_navigation);
 
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(INavigation navigation)
         {
+            _navigation = navigation;
         }
 
-        [RelayCommand]
-        private void ChangeText(object? obj)
-        {
-            var a = obj;
-            Greeting = Convert.ToString(_index);
-            _index++;
-        }
     }
 }

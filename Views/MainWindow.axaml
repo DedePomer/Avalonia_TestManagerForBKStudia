@@ -8,13 +8,10 @@
         x:DataType="vm:MainWindowViewModel"
         Title="Avalonia_TestManagerForBKStudia">
 
-    <Design.DataContext>       
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+
 
 	<Grid>
-		<TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-		<Button CommandParameter="{Binding}" Command="{Binding ChangeTextCommand}" Content="TEst"/>
+		
 	</Grid>
 
 </Window>
