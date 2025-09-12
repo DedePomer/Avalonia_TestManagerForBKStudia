@@ -1,4 +1,5 @@
-﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Helpers;
+﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Enums;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Helpers;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
@@ -8,7 +9,7 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
 {
     public partial class CreateTestViewModel : BaseViewModel
     {
-        public int QuestionTypeIndex { get; set; } = 0;
+        public QuestionTypeEnum QuestionTypeIndex { get; set; } = 0;
         public int MaximumQuestion { get; } = 30;
         public int MinimumQuestion { get; } = 8;
         public int QuestionCount { get; set; } = 10;

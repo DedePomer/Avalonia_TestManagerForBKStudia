@@ -2,7 +2,7 @@
 {
     public enum QuestionTypeEnum
     {
-        QuuestionWithTextAnswer = 0,
+        QuestionWithTextAnswer = 0,
         MultipleChoiceQuestionWithOneAnswer = 1,
     }
 }
