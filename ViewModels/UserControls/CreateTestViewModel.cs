@@ -44,9 +44,9 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
             }
         }
         [RelayCommand]
-        private void CreateTest(object? obj)
+        private async Task CreateTest(object? obj)
         {
-            FileWriter.WriteAsync(Test);
+            await FileWriter.WriteAsync(Test);
         }
         [RelayCommand]
         private void NvigateToMenuView(object? obj)
