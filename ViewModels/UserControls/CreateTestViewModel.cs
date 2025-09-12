@@ -1,15 +1,15 @@
-﻿using Avalonia.Controls.ApplicationLifetimes;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Enums;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Helpers;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
+using Avalonia_TestManagerForBKStudia.Models.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
 using CommunityToolkit.Mvvm.Input;
-using MsBox.Avalonia.Enums;
 using MsBox.Avalonia;
-using static System.Net.Mime.MediaTypeNames;
-using System.Threading.Tasks;
-using Avalonia_TestManagerForBKStudia.Models.Interfaces;
+using MsBox.Avalonia.Enums;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
 {
@@ -24,7 +24,7 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         public CreateTestViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
             : base(navigation, fileReader, fileWriter)
         { }
-        
+
         [RelayCommand]
         private async Task AddQuestion(object? obj)
         {
@@ -34,7 +34,7 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
                     .Add(QuestionHelper
                     .GetQuestion(QuestionTypeIndex));
             }
-            else 
+            else
             {
                 var desktop = Avalonia.Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
                 await MessageBoxManager
@@ -60,6 +60,29 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         {
             var deleteQuestio = obj as IQuestion;
             Test.Questions?.Remove(deleteQuestio!);
+        }
+        [RelayCommand]
+        private void AddAnswerOnMultipleChoiceQuestionWithOneAnswer(object? obj)
+        {
+            var question = obj as MultipleChoiceQuestionWithOneAnswer;
+            question?.Answers.Add(new TextAnswer()
+            {
+                IsCorrect = false,
+                Text = string.Empty,
+                QuestionId = question.Id,
+            });
+        }
+        [RelayCommand]
+        private void DeleteAnswerOnMultipleChoiceQuestionWithOneAnswer(object? obj)
+        {
+            var answer = obj as TextAnswer;
+            var question = Test
+                .Questions?
+                .FirstOrDefault(x => x.Id == answer?.QuestionId) as MultipleChoiceQuestionWithOneAnswer;
+
+            question
+                ?.Answers
+                .Remove(answer!);
         }
         #endregion
     }

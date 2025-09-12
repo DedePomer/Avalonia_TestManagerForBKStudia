@@ -16,15 +16,15 @@
 					<TextBox Width="200" Text="{Binding Text, Mode=TwoWay}"></TextBox>
 				</StackPanel>
 
-				<StackPanel  Grid.Column="0" Grid.Row="1" Orientation="Horizontal" >
+				<StackPanel Margin="0 0 0 20"  Grid.Column="0" Grid.Row="1" Orientation="Horizontal" >
 					<Label ToolTip.Tip="Ответ"></Label>
 					<TextBox x:DataType="dataTypes:TextAnswer" Width="200" Text="{Binding Text, Mode=TwoWay}"></TextBox>
 				</StackPanel>
 
 
-				<StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal" >
+				<StackPanel  Grid.Column="1" Grid.Row="1" Margin="0 0 10 20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" >
 					<Button Command="{Binding DataContext.DeleteQuestionCommand,
-								 RelativeSource={RelativeSource AncestorType=views:CreateTestView}}"
+								 RelativeSource={RelativeSource AncestorType=UserControl}}"
 								CommandParameter="{Binding}" Background="Red">Удалить</Button>
 				</StackPanel>
 
@@ -49,11 +49,12 @@
 					<StackPanel Orientation="Horizontal">
 
 
-						<!--<Button Background="GreenYellow" Command="{Binding DataContext.AddAnswerOnMultiQuestionCommand,
-								 RelativeSource={RelativeSource AncestorType=view:CreateTestUserControl}}" 
+						<Button Background="GreenYellow" HorizontalAlignment="Left" VerticalAlignment="Top"
+								Command="{Binding DataContext.AddAnswerOnMultipleChoiceQuestionWithOneAnswerCommand,
+								 RelativeSource={RelativeSource AncestorType=UserControl}}" 
 								 CommandParameter="{Binding}" Width="30" Height="30">
 							<TextBlock FontSize="15">+</TextBlock>
-						</Button>-->
+						</Button>
 						
 						
 
@@ -65,10 +66,10 @@
 				</StackPanel>
 
 				
-				<StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal" >
-					<!--<Button Command="{Binding DataContext.DeleteQuestionCommand,
-								 RelativeSource={RelativeSource AncestorType=view:CreateTestUserControl}}"
-								CommandParameter="{Binding}" Background="Red">Удалить</Button>-->
+				<StackPanel  Grid.Column="1" Grid.Row="1" Margin="0 0 10 20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" >
+					<Button Command="{Binding DataContext.DeleteQuestionCommand,
+								 RelativeSource={RelativeSource AncestorType=UserControl}}"
+								CommandParameter="{Binding}" Background="Red">Удалить</Button>
 				</StackPanel>
 
 			</Grid>
@@ -83,13 +84,13 @@
 		<StackPanel Orientation="Horizontal">
 			<TextBox Text="{Binding Text}" Width="100"></TextBox>
 			<RadioButton GroupName="{Binding QuestionId}" IsChecked="{Binding IsCorrect}"/>
-			<!--<Button Background="BlueViolet" 
-								Command="{Binding DataContext.DeleteAnswerOnMultiQuestionCommand,
-								 RelativeSource={RelativeSource AncestorType=view:CreateTestUserControl}}"
+			<Button Background="LightBlue" 
+								Command="{Binding DataContext.DeleteAnswerOnMultipleChoiceQuestionWithOneAnswerCommand,
+								 RelativeSource={RelativeSource AncestorType=UserControl}}"
 								CommandParameter="{Binding}"
 								Width="30" Height="30">
 				<TextBlock FontSize="15">-</TextBlock>
-			</Button>-->
+			</Button>
 		</StackPanel>
 	</DataTemplate>
 
