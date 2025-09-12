@@ -14,7 +14,7 @@
 
 						<StackPanel Margin="10 25" Orientation="Horizontal">
 							<Label FontSize="13">Введите название теста: </Label>
-							<TextBox Text="{Binding TestName}" Width="150"></TextBox>
+							<TextBox Text="{Binding Test.Name}" Width="150"></TextBox>
 						</StackPanel>
 
 						<StackPanel HorizontalAlignment="Center">

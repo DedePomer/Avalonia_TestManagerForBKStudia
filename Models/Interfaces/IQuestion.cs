@@ -4,8 +4,8 @@ namespace Avalonia_TestManagerForBKStudia.Models.Interfaces
 {
     public interface IQuestion
     {
-        int Id { get; set; }
-        string TextQuestion { get; set; }
+        int Id { get; init; }
+        string Text { get; set; }
         QuestionTypeEnum QuestionType { get; }
     }
 }
