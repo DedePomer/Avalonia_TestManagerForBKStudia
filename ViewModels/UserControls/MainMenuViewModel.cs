@@ -1,4 +1,6 @@
-﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
+﻿using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
 using CommunityToolkit.Mvvm.Input;
 
@@ -14,6 +16,22 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         private void NavigateToCreateTest(object? obj)
         {
             Navigation.CurrentViewModel = new CreateTestViewModel(Navigation, FileReader, FileWriter);
+        }
+
+        [RelayCommand]
+        private void NavigateToChooseTest(object? obj)
+        {
+
+
+        }
+
+        [RelayCommand]
+        private void Exit(object? obj)
+        {
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime lifetime)
+            {
+                lifetime.MainWindow?.Close();
+            }
         }
     }
 }

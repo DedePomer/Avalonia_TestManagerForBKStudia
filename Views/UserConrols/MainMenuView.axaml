@@ -6,8 +6,24 @@
              x:Class="Avalonia_TestManagerForBKStudia.Views.UserControls.MainMenuView"
 			 
 			 xmlns:viewModels = "clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls">
-	
-	<Grid x:DataType="viewModels:MainMenuViewModel">
-		<Button Content="To Create" Command="{Binding NavigateToCreateTestCommand}"></Button>
-	</Grid>
+
+			<Grid x:DataType="viewModels:MainMenuViewModel" RowDefinitions="*,auto,*">
+
+				<StackPanel  HorizontalAlignment="Center" Grid.Row="1">
+
+					<StackPanel HorizontalAlignment="Center">
+						<Button Command="{Binding NavigateToChooseTestCommand}" Margin="0 10" Content="Выбрать тест"/>
+					</StackPanel>
+
+					<StackPanel HorizontalAlignment="Center">
+						<Button Command="{Binding NavigateToCreateTestCommand}" Margin="0 10" Content="Создать тест"/>
+					</StackPanel>
+
+					<StackPanel  HorizontalAlignment="Center">
+						<Button Command="{Binding ExitCommand}" Margin="0 10" Content="Выход"/>
+					</StackPanel>
+
+				</StackPanel>
+
+			</Grid>
 </UserControl>
