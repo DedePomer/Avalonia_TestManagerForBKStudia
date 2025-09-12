@@ -6,8 +6,55 @@
              x:Class="Avalonia_TestManagerForBKStudia.Views.UserControls.CreateTestView"
 			 
 			 xmlns:viewModels = "clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls">
-	
-	<Grid x:DataType="viewModels:CreateTestViewModel">
-		<Button Content="To Menu" Command="{Binding NavigateToMainMenuCommand}"></Button>
-	</Grid>
+
+
+				<Grid x:DataType="viewModels:CreateTestViewModel" ColumnDefinitions="auto, *">
+					<!--Панель с кнопками-->
+					<StackPanel  HorizontalAlignment="Center" Orientation="Vertical" Grid.Column="0">
+
+						<StackPanel Margin="10 25" Orientation="Horizontal">
+							<Label FontSize="13">Введите название теста: </Label>
+							<TextBox Text="{Binding TestName}" Width="150"></TextBox>
+						</StackPanel>
+
+						<StackPanel HorizontalAlignment="Center">
+							<Button HorizontalContentAlignment="Center" Width="150" Margin="10 15" Command="{Binding AddQuestionCommand}">Добавить вопрос</Button>
+						</StackPanel>
+
+						<StackPanel HorizontalAlignment="Center">
+							<ComboBox SelectedIndex="{Binding QuestionTypeIndex}" HorizontalContentAlignment="Center" Width="300">
+								<ComboBoxItem Content="Вопрос с одним ответом"/>
+								<ComboBoxItem Content="Вопрос с мнодественным ответом"/>
+							</ComboBox>
+						</StackPanel>
+
+						<StackPanel HorizontalAlignment="Center">
+							<Button Command="{Binding CreateTestCommand}" HorizontalContentAlignment="Center" Width="150" Margin="10 15">Сохранить</Button>
+						</StackPanel>
+
+						<StackPanel HorizontalAlignment="Center">
+							<Button HorizontalContentAlignment="Center" Width="150" Margin="10 15" Command="{Binding NvigateToMenuViewCommand}">Назад</Button>
+						</StackPanel>
+
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+							<Label VerticalAlignment="Center" Width="30" FontSize="15" Content="{Binding Value, ElementName=CountQuestionSlider}"/>
+							<Slider x:Name="CountQuestionSlider" Width="250" Minimum="{Binding MinimumQuestion}"
+									Maximum="{Binding MaximumQuestion}" Value="{Binding QuestionCount}"
+									TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="1" Foreground="Black">
+							</Slider>
+						</StackPanel>
+
+					</StackPanel>
+
+					<!--Панель с вопросами-->
+					<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+						<ItemsControl Background="LightGray" ItemsSource="{Binding Questions, Mode=TwoWay}" >
+							<ItemsControl.ItemTemplate>
+								<!--<selector:CreateTestTemplateSelctor
+									SingleAnswerQuestionTemplate="{StaticResource CreateTest_SingleAnswerQuestionTemplate}"
+									MultiAnswerQuestionTemplate="{StaticResource CreateTest_MultiAnswerQuestionTemplate}"/>-->
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</ScrollViewer>
+				</Grid>
 </UserControl>

@@ -10,7 +10,10 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
     {
         public MainMenuViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
             : base(navigation, fileReader, fileWriter)
-        {}
+        { }
+
+
+
 
         [RelayCommand]
         private void NavigateToCreateTest(object? obj)
@@ -28,7 +31,8 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         [RelayCommand]
         private void Exit(object? obj)
         {
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime lifetime)
+            if (Application.Current != null 
+                && Application.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime lifetime)
             {
                 lifetime.MainWindow?.Close();
             }
