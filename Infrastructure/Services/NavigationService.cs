@@ -1,12 +1,13 @@
 ﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
+using Avalonia_TestManagerForBKStudia.ViewModels.Base;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
 {
     public class NavigationService : ObservableObject, INavigation 
     {
-        private IPage? _currentViewModel;
-        public required IPage CurrentViewModel
+        private BaseViewModel? _currentViewModel;
+        public required BaseViewModel CurrentViewModel
         {
             get
             {

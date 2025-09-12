@@ -1,24 +1,19 @@
 ﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
+using Avalonia_TestManagerForBKStudia.ViewModels.Base;
 using Avalonia_TestManagerForBKStudia.ViewModels.UserControls;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels
 {
-    public partial class MainWindowViewModel : ObservableObject
+    public partial class MainWindowViewModel : BaseViewModel
     {
-        private readonly INavigation _navigation;
-        private readonly IFileReader _fileReader;
-        private readonly IFileWriter _fileWriter;
+        public ObservableObject CurrentViewModel
+            => new MainMenuViewModel(Navigation, FileReader, FileWriter);
 
-        public ObservableObject CurrentViewModel => new MainMenuViewModel(_navigation, _fileReader, _fileWriter);
-
-
-        public MainWindowViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
+        public MainWindowViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter) 
+            : base(navigation, fileReader, fileWriter)
         {
-            _navigation = navigation;
-            _fileReader = fileReader;
-            _fileWriter = fileWriter;
-        }
-
+        
+        }      
     }
 }

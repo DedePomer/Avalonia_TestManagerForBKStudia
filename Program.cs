@@ -31,7 +31,7 @@ sealed class Program
 
         var testDirectory = app.Services.GetRequiredService<TestDirectoryInitializer>();
         testDirectory.Initialize();
-        var mainMenuVM = app.Services.GetRequiredService<MainWindowViewModel>();
+        app.Services.GetRequiredService<MainWindowViewModel>();
 
         await app.StartAsync();
 

@@ -1,19 +1,14 @@
 ﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
-using CommunityToolkit.Mvvm.ComponentModel;
+using Avalonia_TestManagerForBKStudia.ViewModels.Base;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
 {
-    public class MainMenuViewModel : ObservableObject, IPage
+    public class MainMenuViewModel : BaseViewModel
     {
-        private readonly INavigation _navigation;
-        private readonly IFileReader _fileReader;
-        private readonly IFileWriter _fileWriter;
-
         public MainMenuViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
+            : base(navigation, fileReader, fileWriter)
         {
-            _navigation = navigation;
-            _fileReader = fileReader;
-            _fileWriter = fileWriter;
+
         }
     }
 }
