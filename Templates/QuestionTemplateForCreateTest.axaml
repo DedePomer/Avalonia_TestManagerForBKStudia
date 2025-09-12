@@ -23,9 +23,9 @@
 
 
 				<StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal" >
-					<!--<Button Command="{Binding DataContext.DeleteQuestionCommand,
-								 RelativeSource={RelativeSource AncestorType=view:CreateTestUserControl}}"
-								CommandParameter="{Binding}" Background="Red">Удалить</Button>-->
+					<Button Command="{Binding DataContext.DeleteQuestionCommand,
+								 RelativeSource={RelativeSource AncestorType=views:CreateTestView}}"
+								CommandParameter="{Binding}" Background="Red">Удалить</Button>
 				</StackPanel>
 
 			</Grid>

@@ -9,6 +9,7 @@ using MsBox.Avalonia.Enums;
 using MsBox.Avalonia;
 using static System.Net.Mime.MediaTypeNames;
 using System.Threading.Tasks;
+using Avalonia_TestManagerForBKStudia.Models.Interfaces;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
 {
@@ -57,7 +58,8 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         [RelayCommand]
         private void DeleteQuestion(object? obj)
         {
-            
+            var deleteQuestio = obj as IQuestion;
+            Test.Questions?.Remove(deleteQuestio!);
         }
         #endregion
     }
