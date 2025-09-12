@@ -79,7 +79,7 @@
 	</DataTemplate>
 
 	<!--Шаблон для ответа в MultiQuestion-->
-	<DataTemplate x:DataType="dataTypes:MultipleChoiceQuestionWithOneAnswer" x:Key="CreateTest_AnswerTemplate">		
+	<DataTemplate x:DataType="dataTypes:TextAnswer" x:Key="CreateTest_AnswerTemplate">		
 		<StackPanel Orientation="Horizontal">
 			<TextBox Text="{Binding Text}" Width="100"></TextBox>
 			<RadioButton GroupName="{Binding QuestionId}" IsChecked="{Binding IsCorrect}"/>

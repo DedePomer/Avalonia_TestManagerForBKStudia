@@ -5,7 +5,8 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Avalonia_TestManagerForBKStudia.Views.UserControls.CreateTestView"
 			 
-			 xmlns:viewModels = "clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls">
+			 xmlns:viewModels="clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls"
+			 xmlns:selectors="clr-namespace:Avalonia_TestManagerForBKStudia.Infrastructure.Selectors">
 
 
 				<Grid x:DataType="viewModels:CreateTestViewModel" ColumnDefinitions="auto, *">
@@ -50,9 +51,9 @@
 					<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
 						<ItemsControl Background="LightGray" ItemsSource="{Binding Test.Questions, Mode=TwoWay}" >
 							<ItemsControl.ItemTemplate>
-								<!--<selector:CreateTestTemplateSelctor
-									SingleAnswerQuestionTemplate="{StaticResource CreateTest_SingleAnswerQuestionTemplate}"
-									MultiAnswerQuestionTemplate="{StaticResource CreateTest_MultiAnswerQuestionTemplate}"/>-->
+								<selectors:CreateTestTemplateSelctor
+									QuestionWithTextAnswerTemplate="{StaticResource CreateTest_QuestionWithTextAnswerTemplate}"
+									MultipleChoiceQuestionWithOneAnswerTemplate="{StaticResource CreateTest_MultipleChoiceQuestionWithOneAnswerTemplate}"/>
 							</ItemsControl.ItemTemplate>
 						</ItemsControl>
 					</ScrollViewer>
