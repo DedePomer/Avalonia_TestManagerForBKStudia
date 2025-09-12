@@ -9,7 +9,7 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
         public required int Id { get; init; }
         public required string Text { get; set; }
         public QuestionTypeEnum QuestionType
-            => QuestionTypeEnum.QuestionWithTextAnswer;
+            => QuestionTypeEnum.MultipleChoiceQuestionWithOneAnswer;
         public required ObservableCollection<IAnswer> Answers { get; set; }
     }
 }
