@@ -6,12 +6,28 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Avalonia_TestManagerForBKStudia.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Title="Avalonia_TestManagerForBKStudia">
-
-
-
-	<Grid>
 		
+		xmlns:viewsUserControl = "clr-namespace:Avalonia_TestManagerForBKStudia.Views"
+		xmlns:viewModelsUserControl = "clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls"
+		
+		
+        Title="Avalonia_TestManager" MinHeight="450" MinWidth="1000">
+
+
+
+	<Grid x:DataType="viewModelsWindow:MainWindowViewModel">
+		<ContentControl  Content="{Binding CurrentViewModel}"/>
 	</Grid>
+
+
+	<Window.DataTemplates>
+		<DataTemplate DataType="{x:Type viewModelsUserControl:MenuViewModel}">
+			<viewsUserControl:MenuUserControl/>
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type viewModelsUserControl:CreateTestViewModel}">
+			<viewsUserControl:CreateTestUserControl/>
+		</DataTemplate>	
+	</Window.DataTemplates>
 
 </Window>

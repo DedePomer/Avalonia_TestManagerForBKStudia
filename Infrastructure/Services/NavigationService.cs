@@ -3,14 +3,9 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
 {
-    public class NavigationService<T> : ObservableObject, INavigation 
-        where T : IPage, new()
+    public class NavigationService : ObservableObject, INavigation 
     {
-        private IPage _currentViewModel;
-        public NavigationService()
-        {
-            _currentViewModel = new T();
-        }
+        private IPage? _currentViewModel;
         public required IPage CurrentViewModel
         {
             get

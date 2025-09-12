@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
 {
-    public class AddTestUserControl : ObservableObject, IPage
+    public class AddTestViewModel : ObservableObject, IPage
     {
     }
 }

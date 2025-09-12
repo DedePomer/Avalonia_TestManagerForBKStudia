@@ -1,6 +1,8 @@
 ﻿using System;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Services;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Services.ReaderService;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Services.WriterService;
 using Avalonia_TestManagerForBKStudia.Infrastructure.TestDirectory;
 using Avalonia_TestManagerForBKStudia.ViewModels;
 using Avalonia_TestManagerForBKStudia.ViewModels.UserControls;
@@ -16,7 +18,10 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Extensions
         {
             services.AddSingleton<MainWindow>();
             services.AddSingleton<MainWindowViewModel>();
-            services.AddSingleton<INavigation, NavigationService<MainMenuUserControl>>();
+
+            services.AddSingleton<INavigation, NavigationService>();
+            services.AddSingleton<IFileReader, FileReaderService>();
+            services.AddSingleton<IFileWriter, FileWriterService>();
         }
 
         public static void AddDirectory(this IServiceCollection services , IConfiguration configuration)
