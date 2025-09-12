@@ -29,6 +29,12 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
     <PackageReference Include="Xaml.Behaviors.Avalonia" Version="11.3.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\UserConrols\CreateTestView.axaml.cs">
+      <DependentUpon>CreateTestView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
   
   <ItemGroup>
     <None Update="appsettings.json">

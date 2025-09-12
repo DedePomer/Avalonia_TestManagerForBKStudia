@@ -7,5 +7,6 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces
     public interface INavigation
     {
         BaseViewModel CurrentViewModel { get; set; }
+        Action? CurrentViewModelChanged { get; set; }
     }
 }

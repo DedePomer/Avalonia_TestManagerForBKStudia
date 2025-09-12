@@ -3,6 +3,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Avalonia_TestManagerForBKStudia.Views.UserControls.AddTestView">
-	Welcome to AddTestView!
+             x:Class="Avalonia_TestManagerForBKStudia.Views.UserControls.CreateTestView"
+			 
+			 xmlns:viewModels = "clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls">
+	
+	<Grid x:DataType="viewModels:CreateTestViewModel">
+		<Button Content="To Menu" Command="{Binding NavigateToMainMenuCommand}"></Button>
+	</Grid>
 </UserControl>

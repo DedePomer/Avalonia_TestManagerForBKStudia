@@ -22,8 +22,8 @@
 
 
 	<Window.DataTemplates>
-		<DataTemplate DataType="{x:Type viewModels:AddTestViewModel}">
-			<views:AddTestView/>
+		<DataTemplate DataType="{x:Type viewModels:CreateTestViewModel}">
+			<views:CreateTestView/>
 		</DataTemplate>
 
 		<DataTemplate DataType="{x:Type viewModels:MainMenuViewModel}">

@@ -4,16 +4,16 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
 {
-    public partial class MainMenuViewModel : BaseViewModel
+    public partial class CreateTestViewModel : BaseViewModel
     {
-        public MainMenuViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
+        public CreateTestViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
             : base(navigation, fileReader, fileWriter)
         {}
 
         [RelayCommand]
-        private void NavigateToCreateTest(object? obj)
+        private void NavigateToMainMenu(object? obj)
         {
-            Navigation.CurrentViewModel = new CreateTestViewModel(Navigation, FileReader, FileWriter);
+            Navigation.CurrentViewModel = new MainMenuViewModel(Navigation, FileReader, FileWriter);
         }
     }
 }

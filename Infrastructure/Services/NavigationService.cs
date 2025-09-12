@@ -1,10 +1,10 @@
-﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
+﻿using System;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
 {
-    public class NavigationService : ObservableObject, INavigation 
+    public class NavigationService : INavigation
     {
         private BaseViewModel? _currentViewModel;
         public required BaseViewModel CurrentViewModel
@@ -17,8 +17,9 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
             {
                 _currentViewModel = value;
 
-                OnPropertyChanged(nameof(_currentViewModel));
+                CurrentViewModelChanged?.Invoke();
             }
         }
+        public Action? CurrentViewModelChanged { get; set; }
     }
 }

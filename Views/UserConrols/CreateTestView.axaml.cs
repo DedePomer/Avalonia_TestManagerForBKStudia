@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Avalonia_TestManagerForBKStudia.Views.UserControls;
 
-public partial class AddTestView : UserControl
+public partial class CreateTestView : UserControl
 {
-    public AddTestView()
+    public CreateTestView()
     {
         InitializeComponent();
     }
