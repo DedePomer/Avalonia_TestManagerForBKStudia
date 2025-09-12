@@ -48,7 +48,7 @@
 
 					<!--Панель с вопросами-->
 					<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-						<ItemsControl Background="LightGray" ItemsSource="{Binding Questions, Mode=TwoWay}" >
+						<ItemsControl Background="LightGray" ItemsSource="{Binding Test.Questions, Mode=TwoWay}" >
 							<ItemsControl.ItemTemplate>
 								<!--<selector:CreateTestTemplateSelctor
 									SingleAnswerQuestionTemplate="{StaticResource CreateTest_SingleAnswerQuestionTemplate}"

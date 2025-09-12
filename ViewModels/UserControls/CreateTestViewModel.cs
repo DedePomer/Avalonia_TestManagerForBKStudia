@@ -1,9 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Helpers;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
-using Avalonia_TestManagerForBKStudia.Models.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
@@ -14,24 +12,18 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         public int MaximumQuestion { get; } = 30;
         public int MinimumQuestion { get; } = 8;
         public int QuestionCount { get; set; } = 10;
-        public TestModel Test { get; set; }
+        public TestModel Test { get; set; } = TestHelper.CreateTest();
 
         public CreateTestViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter)
             : base(navigation, fileReader, fileWriter)
-        {
-            Test = new TestModel() 
-            {
-                DirectoryPath = string.Empty,
-                Questions = new ObservableCollection<IQuestion>(),
-            };
-        }
+        { }
 
 
 
         [RelayCommand]
         private void AddQuestion(object? obj)
         {
-            
+
         }
         [RelayCommand]
         private void CreateTest(object? obj)
@@ -43,6 +35,6 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         {
             Navigation.CurrentViewModel = new MainMenuViewModel(Navigation, FileReader, FileWriter);
         }
-        
+
     }
 }
