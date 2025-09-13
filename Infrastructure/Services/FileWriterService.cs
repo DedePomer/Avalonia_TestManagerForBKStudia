@@ -2,17 +2,15 @@
 using System.IO;
 using System.Text.Encodings.Web;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Text.Unicode;
 using System.Threading.Tasks;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Helpers;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
-using Avalonia_TestManagerForBKStudia.Models.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services.WriterService
+namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
 {
     public class FileWriterService : IFileWriter
     {
