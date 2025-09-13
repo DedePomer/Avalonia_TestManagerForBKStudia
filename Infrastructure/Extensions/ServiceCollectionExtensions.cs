@@ -1,7 +1,6 @@
 ﻿using System;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Services;
-using Avalonia_TestManagerForBKStudia.Infrastructure.Services.ReaderService;
 using Avalonia_TestManagerForBKStudia.Infrastructure.TestDirectory;
 using Avalonia_TestManagerForBKStudia.ViewModels;
 using Avalonia_TestManagerForBKStudia.ViewModels.UserControls;
