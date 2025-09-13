@@ -45,8 +45,18 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         [RelayCommand]
         private async Task CreateTest(object? obj)
         {
-            await FileWriter.WriteAsync(Test);
-            Test.Clear();
+            if (Test.Questions?.Count != 0)
+            {
+                await FileWriter.WriteAsync(Test);
+                Test.Clear();
+            }
+            else 
+            {
+                var desktop = Avalonia.Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
+                await MessageBoxManager
+                          .GetMessageBoxStandard("Уведомление", "Нет вопросов", ButtonEnum.Ok)
+                          .ShowWindowDialogAsync(desktop!.MainWindow!);
+            }
         }
         [RelayCommand]
         private void NvigateToMenuView(object? obj)

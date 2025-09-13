@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System.Collections.ObjectModel;
+using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
@@ -24,8 +25,7 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         [RelayCommand]
         private void NavigateToChooseTest(object? obj)
         {
-
-
+            Navigation.CurrentViewModel = new ChooseTestViewModel(Navigation, FileReader, FileWriter);
         }
 
         [RelayCommand]

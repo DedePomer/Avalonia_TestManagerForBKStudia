@@ -31,5 +31,10 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
                 Questions = questions,
             };
         }
+
+        public static ObservableCollection<TestModel> CreateTestCollection(string? path = )
+        { 
+            
+        }
     }
 }

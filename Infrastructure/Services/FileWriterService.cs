@@ -9,6 +9,7 @@ using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Constants;
 
 namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
 {
@@ -29,7 +30,7 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
         {
 
             string directoryPath = _services
-                .GetRequiredService<IConfiguration>()["TestDirectoryPath"]!;
+                .GetRequiredService<IConfiguration>()[DirectoryConstants.TEST_DIRECTORY_KEY]!;
 
             string fullPath = FileHelper
                 .GetVerifyFilePath(directoryPath, test.Name);
