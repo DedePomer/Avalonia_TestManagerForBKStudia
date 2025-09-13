@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -21,7 +20,6 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services.WriterService
         {
             Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
             WriteIndented = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.Never,
         };
         private readonly IServiceProvider _services;
         public FileWriterService(IServiceProvider services)
@@ -31,6 +29,7 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services.WriterService
 
         public async Task WriteAsync(TestModel test)
         {
+
             string directoryPath = _services
                 .GetRequiredService<IConfiguration>()["TestDirectoryPath"]!;
 
@@ -38,14 +37,10 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services.WriterService
                 .GetVerifyFilePath(directoryPath, test.Name);
 
 
-            //Stream stream = File
-            //    .Create(fullPath);
-
-
-            string json = JsonSerializer.Serialize(test, _options);
-            File.WriteAllText(fullPath, json);
-            //await JsonSerializer
-            //    .SerializeAsync(stream, test, _options);
+            using (var stream = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
+            {
+                await JsonSerializer.SerializeAsync(stream, test, _options);
+            }
         }
     }
 }

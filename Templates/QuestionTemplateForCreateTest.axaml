@@ -18,7 +18,7 @@
 
 				<StackPanel Margin="0 0 0 20"  Grid.Column="0" Grid.Row="1" Orientation="Horizontal" >
 					<Label ToolTip.Tip="Ответ"></Label>
-					<TextBox x:DataType="dataTypes:TextAnswer" Width="200" Text="{Binding Text, Mode=TwoWay}"></TextBox>
+					<TextBox Width="200" Text="{Binding Answer.Text, Mode=TwoWay}"></TextBox>
 				</StackPanel>
 
 

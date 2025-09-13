@@ -5,6 +5,6 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces
 {
     public interface IFileWriter
     {
-        Task WriteAsync(TestModel test);
+        public Task WriteAsync(TestModel test);
     }
 }
