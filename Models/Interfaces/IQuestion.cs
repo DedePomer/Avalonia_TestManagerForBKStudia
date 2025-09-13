@@ -5,8 +5,8 @@ using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 namespace Avalonia_TestManagerForBKStudia.Models.Interfaces
 {
     [JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
-    [JsonDerivedType(typeof(MultipleChoiceQuestionWithOneAnswer), "multiToOne")]
-    [JsonDerivedType(typeof(QuestionWithTextAnswer), "text")]
+    [JsonDerivedType(typeof(MultipleChoiceQuestionWithOneAnswer), nameof(MultipleChoiceQuestionWithOneAnswer))]
+    [JsonDerivedType(typeof(QuestionWithTextAnswer), nameof(QuestionWithTextAnswer))]
     public interface IQuestion
     {
         int Id { get; init; }
