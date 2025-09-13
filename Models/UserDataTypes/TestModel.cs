@@ -10,5 +10,12 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
         private string _name = string.Empty;
         public required string DirectoryPath { get; set; }
         public ObservableCollection<IQuestion>? Questions { get; set; }
+
+        public void Clear()
+        { 
+            Name = string.Empty;
+            DirectoryPath = string.Empty;
+            Questions?.Clear();
+        }
     }
 }

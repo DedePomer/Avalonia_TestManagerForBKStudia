@@ -1,5 +1,4 @@
-﻿using System.IO.Pipelines;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Enums;
@@ -47,6 +46,7 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         private async Task CreateTest(object? obj)
         {
             await FileWriter.WriteAsync(Test);
+            Test.Clear();
         }
         [RelayCommand]
         private void NvigateToMenuView(object? obj)
