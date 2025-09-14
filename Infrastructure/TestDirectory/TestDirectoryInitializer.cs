@@ -2,6 +2,9 @@
 
 namespace Avalonia_TestManagerForBKStudia.Infrastructure.TestDirectory
 {
+    /// <summary>
+    /// Клас отвечает за создание директории, в которой будут хранится тесты
+    /// </summary>
     public class TestDirectoryInitializer
     {
         private readonly string _directoryPath;
