@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.IO;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Constants;
 using Avalonia_TestManagerForBKStudia.Models.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 
@@ -32,9 +34,24 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
             };
         }
 
-        public static ObservableCollection<TestModel> CreateTestCollection(string? path = )
-        { 
-            
+        public static ObservableCollection<TestModel> CreateTestCollection(string? path)
+        {
+            if (path == default)
+            {
+                path = DirectoryConstants.TestsDirectoryPath;
+            }
+
+            ObservableCollection<TestModel> tests = new ObservableCollection<TestModel>();
+
+            string[] files = Directory.GetFiles(path);
+            foreach (string file in files)
+            {
+                tests
+                    .Add(CreateTest(Path
+                    .GetFileName(file),file));
+            }
+
+            return tests;
         }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Constants;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Services;
 using Avalonia_TestManagerForBKStudia.Infrastructure.TestDirectory;
 using Avalonia_TestManagerForBKStudia.ViewModels;
-using Avalonia_TestManagerForBKStudia.ViewModels.UserControls;
 using Avalonia_TestManagerForBKStudia.Views;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,9 +22,9 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Extensions
             services.AddSingleton<IFileWriter, FileWriterService>();
         }
 
-        public static void AddDirectory(this IServiceCollection services , IConfiguration configuration)
+        public static void AddDirectory(this IServiceCollection services, IConfiguration configuration)
         {
-            var directoryPath = configuration["TestDirectoryPath"];
+            var directoryPath = configuration[DirectoryConstants.TEST_DIRECTORY_KEY];
             ArgumentNullException.ThrowIfNullOrEmpty(directoryPath, nameof(directoryPath));
             services.AddSingleton<TestDirectoryInitializer>(new TestDirectoryInitializer(directoryPath));
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Avalonia;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Constants;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Extensions;
 using Avalonia_TestManagerForBKStudia.Infrastructure.TestDirectory;
 using Avalonia_TestManagerForBKStudia.ViewModels;
@@ -27,8 +28,12 @@ sealed class Program
         builder.Services.AddServices();
         builder.Services.AddDirectory(builder.Configuration);
 
+        DirectoryConstants.TestsDirectoryPath = builder
+            .Configuration[DirectoryConstants.TEST_DIRECTORY_KEY]!;
+
         var app = builder.Build();
 
+        
         var testDirectory = app.Services.GetRequiredService<TestDirectoryInitializer>();
         testDirectory.Initialize();
         app.Services.GetRequiredService<MainWindowViewModel>();
