@@ -13,7 +13,9 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.TestDirectory
         {
             _directoryPath = directoryPath;
         }
-
+        /// <summary>
+        /// Создание директории с тестами
+        /// </summary>
         public void Initialize()
         {
             if (!Directory.Exists(_directoryPath))
