@@ -12,6 +12,17 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
             => QuestionTypeEnum.MultipleChoiceQuestionWithOneAnswer;
         public required ObservableCollection<IAnswer> Answers { get; set; }
 
+        public void DeleteCorrectAnswer()
+        {
+            foreach (var answer in Answers)
+            {
+                if (answer.IsCorrect == true)
+                {
+                    answer.IsCorrect = false;
+                }
+            }
+        }
+
         public IAnswer? GetCorrectAnswer()
         {
             foreach (var answer in Answers) 

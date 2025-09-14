@@ -1,0 +1,54 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					
+					xmlns:views = "clr-namespace:Avalonia_TestManagerForBKStudia.Views.UserControls"
+					xmlns:viewModels = "clr-namespace:Avalonia_TestManagerForBKStudia.ViewModels.UserControls"
+					xmlns:dataTypes = "clr-namespace:Avalonia_TestManagerForBKStudia.Models.UserDataTypes">
+
+	<!--Шаблон для вопроса с ответом в виде текста-->
+	<DataTemplate x:Key="TakingTest_QuestionWithTextAnswerTemplate">
+		<Border x:DataType="dataTypes:QuestionWithCorrectAnswer" Margin="10" Background="White" BorderBrush="Black" BorderThickness="1">
+			<StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+
+				<TextBlock Text="{Binding Question.Text}"></TextBlock>
+				<TextBox HorizontalAlignment="Left" Text="{Binding Question.Answer.Text}" Width="300"></TextBox>
+				<TextBlock Margin="5 10" FontStyle="Italic" 
+						   IsVisible="{Binding Path=DataContext.IsCorrectAnswerVisibility, 
+						   RelativeSource={RelativeSource AncestorType=UserControl}}">
+					<Run Text="Ответ: " />
+					<Run Text="{Binding CorrectAnswer.Text}" />
+				</TextBlock>
+
+			</StackPanel>
+		</Border>
+	</DataTemplate>
+
+	<!--Шаблон для вопроса с несколькими вариантами ответа, 1 из которых верный-->
+	<DataTemplate x:Key="TakingTest_MultipleChoiceQuestionWithOneAnswerTemplate">
+		<Border x:DataType="dataTypes:QuestionWithCorrectAnswer" Margin="10" Background="White" BorderBrush="Black" BorderThickness="1">
+			<StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+
+				<TextBlock Text="{Binding Question.Text}"></TextBlock>
+
+				<ItemsControl HorizontalAlignment="Left"  
+							  ItemsSource="{Binding Question.Answers, Mode=TwoWay}"
+							  ItemTemplate="{StaticResource TakingTest_AnswerTemplate}"/>
+
+				<TextBlock Margin="5 10" FontStyle="Italic" 
+						   IsVisible="{Binding Path=DataContext.IsCorrectAnswerVisibility, 
+						   RelativeSource={RelativeSource AncestorType=UserControl}}">
+					<Run Text="Ответ: " />
+					<Run Text="{Binding CorrectAnswer.Text}" />
+				</TextBlock>
+
+			</StackPanel>
+		</Border>
+	</DataTemplate>
+
+	<!--Шаблон для ответа-->
+	<DataTemplate x:DataType="dataTypes:TextAnswer" x:Key="TakingTest_AnswerTemplate">
+		<RadioButton GroupName="{Binding QuestionId}" Content="{Binding Text}" IsChecked="{Binding IsCorrect}"/>
+	</DataTemplate>
+	
+	
+</ResourceDictionary>

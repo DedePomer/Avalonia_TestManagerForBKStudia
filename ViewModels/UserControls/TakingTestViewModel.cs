@@ -4,6 +4,7 @@ using Avalonia_TestManagerForBKStudia.Infrastructure.Adapters;
 using Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces;
 using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 using Avalonia_TestManagerForBKStudia.ViewModels.Base;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
 namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
@@ -12,7 +13,14 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
     {
         private readonly string _testPath;
 
-        public ObservableCollection<QuestionWithCorrectAnswer> QuestionsWithCorrectAnswer { get; set; } = new ObservableCollection<QuestionWithCorrectAnswer>();
+        [ObservableProperty]
+        private bool _isCorrectAnswerVisibility = false;
+        [ObservableProperty]
+        private string _countCorrectQuestion;
+
+
+        public ObservableCollection<QuestionWithCorrectAnswer> QuestionsWithCorrectAnswer { get; set; }
+            = new ObservableCollection<QuestionWithCorrectAnswer>();
         public TakingTestViewModel(INavigation navigation, IFileReader fileReader, IFileWriter fileWriter, string testPath)
             : base(navigation, fileReader, fileWriter)
         {

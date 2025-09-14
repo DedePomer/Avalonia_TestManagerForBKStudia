@@ -16,7 +16,7 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Adapters
                     CorrectAnswer = question.GetCorrectAnswer(),
                     Question = question,
                 });
-
+                question.DeleteCorrectAnswer();
             }
             return questions;
         }
