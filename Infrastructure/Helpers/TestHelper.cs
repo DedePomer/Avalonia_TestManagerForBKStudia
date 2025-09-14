@@ -46,9 +46,9 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
             string[] files = Directory.GetFiles(path);
             foreach (string file in files)
             {
+                string filename = Path.GetFileNameWithoutExtension(file);
                 tests
-                    .Add(CreateTest(Path
-                    .GetFileName(file),file));
+                    .Add(CreateTest(filename, file));
             }
 
             return tests;

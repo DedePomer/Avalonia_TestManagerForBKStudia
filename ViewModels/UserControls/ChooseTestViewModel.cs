@@ -28,7 +28,7 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
                 Navigation.CurrentViewModel = new MainMenuViewModel(Navigation, FileReader, FileWriter);
                 var desctop = Avalonia.Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
                 await MessageBoxManager
-                          .GetMessageBoxStandard("Уведомление", "Ни созданно не одного файла теста", ButtonEnum.Ok)
+                          .GetMessageBoxStandard("Уведомление", "Ни созданно не одного теста", ButtonEnum.Ok)
                           .ShowWindowDialogAsync(desctop!.MainWindow!);
             }
         }

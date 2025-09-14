@@ -28,7 +28,11 @@
 
 		<DataTemplate DataType="{x:Type viewModels:MainMenuViewModel}">
 			<views:MainMenuView/>
-		</DataTemplate>	
+		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type viewModels:ChooseTestViewModel}">
+			<views:ChooseTestView/>
+		</DataTemplate>
 	</Window.DataTemplates>
 
 </Window>
