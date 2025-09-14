@@ -2,9 +2,10 @@
 
 namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
 {
-    public class QuestionWithCorrectAnswer 
+    public class QuestionWithCorrectAnswer
     {
-        public required IAnswer? CorrectAnswer { get; init; }
+        public required IAnswer CorrectAnswer { get; init; } = new TextAnswer() 
+        { IsCorrect = true, Text = "Нет правильного ответа", QuestionId = 0 };
         public required IQuestion Question { get; init; }
 
     }

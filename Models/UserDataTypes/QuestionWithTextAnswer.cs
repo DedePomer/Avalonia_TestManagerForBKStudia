@@ -1,4 +1,5 @@
-﻿using Avalonia_TestManagerForBKStudia.Infrastructure.Enums;
+﻿using System.Runtime.ConstrainedExecution;
+using Avalonia_TestManagerForBKStudia.Infrastructure.Enums;
 using Avalonia_TestManagerForBKStudia.Models.Interfaces;
 
 namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
@@ -11,14 +12,24 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
             => QuestionTypeEnum.QuestionWithTextAnswer;
         public required IAnswer Answer { get; set; }
 
+        public bool AnswerValidation(IAnswer correctanswer)
+        {
+            return correctanswer.Equals(Answer);
+        }
+
         public void DeleteCorrectAnswer()
         {
-            Answer = default;
+            (Answer as TextAnswer).Text = string.Empty;
         }
 
         public IAnswer? GetCorrectAnswer()
         {
-            return Answer;
+            return new TextAnswer
+            {
+                QuestionId = (Answer as TextAnswer).QuestionId,
+                Text = (Answer as TextAnswer).Text,
+                IsCorrect = (Answer as TextAnswer).IsCorrect,
+            };
         }
     }
 }

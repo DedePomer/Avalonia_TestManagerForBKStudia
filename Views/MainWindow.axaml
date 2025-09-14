@@ -33,6 +33,10 @@
 		<DataTemplate DataType="{x:Type viewModels:ChooseTestViewModel}">
 			<views:ChooseTestView/>
 		</DataTemplate>
+
+		<DataTemplate DataType="{x:Type viewModels:TakingTestViewModel}">
+			<views:TakingTestView/>
+		</DataTemplate>
 	</Window.DataTemplates>
 
 </Window>

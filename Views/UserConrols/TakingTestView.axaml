@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Avalonia_TestManagerForBKStudia.Views.UserControls.TakingTestView"
+			 
+			 xmlns:selectors="clr-namespace:Avalonia_TestManagerForBKStudia.Infrastructure.Selectors">
+	
+	
+	<Grid  ColumnDefinitions="auto,*">
+
+		<Interaction.Behaviors>
+			<EventTriggerBehavior EventName="Loaded">
+				<InvokeCommandAction Command="{Binding GridLoadedCommand}"/>
+			</EventTriggerBehavior>
+		</Interaction.Behaviors>
+
+		<StackPanel Margin="10 15" Orientation="Vertical" Grid.Column="0">
+			<Button Command="{Binding NvigateToMenuViewCommand}" HorizontalAlignment="Center">Назад</Button>
+			<Button Command="{Binding EndTestCommand}" HorizontalAlignment="Center">Завершить тест</Button>
+			<TextBlock Text="{Binding CountCorrectQuestion}"/>
+		</StackPanel>
+
+		<StackPanel Background="LightGray" Grid.Column="1">
+			<ItemsControl ItemsSource="{Binding QuestionsWithCorrectAnswer}" >
+				<ItemsControl.ItemTemplate>
+					<selectors:TakingTestTemplateSelector
+						QuestionWithTextAnswerTemplate="{StaticResource TakingTest_QuestionWithTextAnswerTemplate}"
+						MultipleChoiceQuestionWithOneAnswerTemplate="{StaticResource TakingTest_MultipleChoiceQuestionWithOneAnswerTemplate}"/>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</StackPanel>
+
+	</Grid>
+</UserControl>

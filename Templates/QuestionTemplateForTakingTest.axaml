@@ -10,8 +10,13 @@
 		<Border x:DataType="dataTypes:QuestionWithCorrectAnswer" Margin="10" Background="White" BorderBrush="Black" BorderThickness="1">
 			<StackPanel Orientation="Vertical" HorizontalAlignment="Left">
 
-				<TextBlock Text="{Binding Question.Text}"></TextBlock>
+				<TextBlock >
+					<Run Text="Вопрос: " />
+					<Run Text="{Binding Question.Text}" />
+				</TextBlock>
+				
 				<TextBox HorizontalAlignment="Left" Text="{Binding Question.Answer.Text}" Width="300"></TextBox>
+				
 				<TextBlock Margin="5 10" FontStyle="Italic" 
 						   IsVisible="{Binding Path=DataContext.IsCorrectAnswerVisibility, 
 						   RelativeSource={RelativeSource AncestorType=UserControl}}">
@@ -28,11 +33,22 @@
 		<Border x:DataType="dataTypes:QuestionWithCorrectAnswer" Margin="10" Background="White" BorderBrush="Black" BorderThickness="1">
 			<StackPanel Orientation="Vertical" HorizontalAlignment="Left">
 
-				<TextBlock Text="{Binding Question.Text}"></TextBlock>
+				<TextBlock >
+					<Run Text="Вопрос: " />
+					<Run Text="{Binding Question.Text}" />
+				</TextBlock>
 
-				<ItemsControl HorizontalAlignment="Left"  
+				<StackPanel Orientation="Vertical">
+					<Button Content="Убрать выделение" CommandParameter="{Binding}" 
+							Command="{Binding DataContext.DeleteSelectionCommand,
+							RelativeSource={RelativeSource AncestorType=UserControl}}"></Button>
+					
+					<ItemsControl HorizontalAlignment="Left"
 							  ItemsSource="{Binding Question.Answers, Mode=TwoWay}"
 							  ItemTemplate="{StaticResource TakingTest_AnswerTemplate}"/>
+										
+				</StackPanel>
+
 
 				<TextBlock Margin="5 10" FontStyle="Italic" 
 						   IsVisible="{Binding Path=DataContext.IsCorrectAnswerVisibility, 
@@ -41,6 +57,8 @@
 					<Run Text="{Binding CorrectAnswer.Text}" />
 				</TextBlock>
 
+				
+				
 			</StackPanel>
 		</Border>
 	</DataTemplate>

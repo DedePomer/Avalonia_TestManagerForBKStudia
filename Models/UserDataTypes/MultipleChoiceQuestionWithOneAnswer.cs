@@ -12,6 +12,18 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
             => QuestionTypeEnum.MultipleChoiceQuestionWithOneAnswer;
         public required ObservableCollection<IAnswer> Answers { get; set; }
 
+        public bool AnswerValidation(IAnswer correctanswer)
+        {
+            foreach (var answer in Answers)
+            {
+                if (answer.IsCorrect == true)
+                {
+                    return correctanswer.Equals(answer);
+                }
+            }
+            return false;
+        }
+
         public void DeleteCorrectAnswer()
         {
             foreach (var answer in Answers)
@@ -25,11 +37,16 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
 
         public IAnswer? GetCorrectAnswer()
         {
-            foreach (var answer in Answers) 
+            foreach (TextAnswer answer in Answers) 
             {
                 if (answer.IsCorrect == true)
                 {
-                    return answer;
+                    return new TextAnswer
+                    { 
+                        QuestionId = answer.QuestionId,
+                        Text = answer.Text,
+                        IsCorrect = answer.IsCorrect,
+                    };
                 }
             }
             return default;

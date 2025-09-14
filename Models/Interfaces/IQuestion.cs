@@ -14,5 +14,6 @@ namespace Avalonia_TestManagerForBKStudia.Models.Interfaces
         QuestionTypeEnum QuestionType { get; }
         IAnswer? GetCorrectAnswer();
         void DeleteCorrectAnswer();
+        bool AnswerValidation(IAnswer correctanswer);
     }
 }
