@@ -15,13 +15,13 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
                 case QuestionTypeEnum.QuestionWithTextAnswer:
                     return new QuestionWithTextAnswer()
                     { 
-                        Id = _questionId++,
+                        Id = _questionId,
                         Text =string.Empty,
                         Answer = new TextAnswer()
                         { 
                             IsCorrect = true,
                             Text = string.Empty,
-                            QuestionId = _questionId,
+                            QuestionId = _questionId++,
                         }
                     };
                 case QuestionTypeEnum.MultipleChoiceQuestionWithOneAnswer:

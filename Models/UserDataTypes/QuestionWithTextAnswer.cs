@@ -10,5 +10,10 @@ namespace Avalonia_TestManagerForBKStudia.Models.UserDataTypes
         public QuestionTypeEnum QuestionType
             => QuestionTypeEnum.QuestionWithTextAnswer;
         public required IAnswer Answer { get; set; }
+
+        public IAnswer? GetCorrectAnswer()
+        {
+            return Answer;
+        }
     }
 }

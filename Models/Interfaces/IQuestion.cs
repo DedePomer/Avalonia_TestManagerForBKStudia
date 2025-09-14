@@ -12,5 +12,6 @@ namespace Avalonia_TestManagerForBKStudia.Models.Interfaces
         int Id { get; init; }
         string Text { get; set; }
         QuestionTypeEnum QuestionType { get; }
+        IAnswer? GetCorrectAnswer();
     }
 }
