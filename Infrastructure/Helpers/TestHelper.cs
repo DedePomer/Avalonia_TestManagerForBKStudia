@@ -12,7 +12,7 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
         {
             return new TestModel()
             {
-                DirectoryPath = string.Empty,
+                Path = string.Empty,
                 Questions = new ObservableCollection<IQuestion>(),
             };
         }
@@ -21,7 +21,7 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
             return new TestModel()
             {
                 Name = name,
-                DirectoryPath = path,
+                Path = path,
             };
         }
         public static TestModel CreateTest(string name, string path, ObservableCollection<IQuestion> questions)
@@ -29,7 +29,7 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
             return new TestModel()
             {
                 Name = name,
-                DirectoryPath = path,
+                Path = path,
                 Questions = questions,
             };
         }

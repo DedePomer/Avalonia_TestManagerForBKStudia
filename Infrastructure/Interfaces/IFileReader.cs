@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Avalonia_TestManagerForBKStudia.Models.UserDataTypes;
 
 namespace Avalonia_TestManagerForBKStudia.Infrastructure.Interfaces
 {
     public interface IFileReader
     {
+        TestModel ReadTestAsync(string path);
     }
 }

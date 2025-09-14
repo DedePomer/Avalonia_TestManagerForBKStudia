@@ -47,10 +47,10 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         {
             if (Test.Questions?.Count != 0)
             {
-                await FileWriter.WriteAsync(Test);
+                await FileWriter.WriteAsync(Test, default);
                 Test.Clear();
             }
-            else 
+            else
             {
                 var desktop = Avalonia.Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
                 await MessageBoxManager

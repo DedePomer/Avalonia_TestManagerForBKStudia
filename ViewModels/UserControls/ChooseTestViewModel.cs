@@ -35,7 +35,8 @@ namespace Avalonia_TestManagerForBKStudia.ViewModels.UserControls
         [RelayCommand]
         private void ChooseTest(object? obj)
         {
-            var test = obj as TestModel;
+            TestModel test = (obj as TestModel)!;
+            Navigation.CurrentViewModel = new TakingTestViewModel(Navigation, FileReader, FileWriter, test.Path);
         }
     }
 }

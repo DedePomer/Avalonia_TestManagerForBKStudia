@@ -26,14 +26,21 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Services
             _services = services;
         }
 
-        public async Task WriteAsync(TestModel test)
+        public async Task WriteAsync(TestModel test, string? path)
         {
-
-            string directoryPath = _services
-                .GetRequiredService<IConfiguration>()[DirectoryConstants.TEST_DIRECTORY_KEY]!;
+            string directoryPath;
+            if (path == default)
+            {
+                directoryPath = _services
+                    .GetRequiredService<IConfiguration>()[DirectoryConstants.TEST_DIRECTORY_KEY]!;
+            }
+            else 
+            {
+                directoryPath = path;
+            }
 
             string fullPath = FileHelper
-                .GetVerifyFilePath(directoryPath, test.Name);
+                    .GetVerifyFilePath(directoryPath, test.Name);
 
 
             using (var stream = new FileStream(fullPath, FileMode.Create, FileAccess.Write))
