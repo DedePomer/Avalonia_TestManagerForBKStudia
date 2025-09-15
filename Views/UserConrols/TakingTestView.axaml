@@ -22,7 +22,7 @@
 			<TextBlock Text="{Binding CountCorrectQuestion}"/>
 		</StackPanel>
 
-		<StackPanel Background="LightGray" Grid.Column="1">
+		<ScrollViewer Background="LightGray" Grid.Column="1">
 			<ItemsControl ItemsSource="{Binding QuestionsWithCorrectAnswer}" >
 				<ItemsControl.ItemTemplate>
 					<selectors:TakingTestTemplateSelector
@@ -30,7 +30,7 @@
 						MultipleChoiceQuestionWithOneAnswerTemplate="{StaticResource TakingTest_MultipleChoiceQuestionWithOneAnswerTemplate}"/>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
-		</StackPanel>
+		</ScrollViewer>
 
 	</Grid>
 </UserControl>

@@ -22,7 +22,7 @@
 			<Grid Margin="10 15" Background="White" ColumnDefinitions="*,auto">
 				<StackPanel Grid.Column="0" Orientation="Vertical">
 					<TextBlock FontSize="17" Text="{Binding Name}"/>
-					<TextBlock FontSize="13" Text="{Binding DirectoryPath}"/>
+					<TextBlock FontSize="13" Text="{Binding Path}"/>
 				</StackPanel>
 				<StackPanel Grid.Column="1">
 					<Button Command="{Binding Path=DataContext.ChooseTestCommand, 
