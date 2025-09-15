@@ -5,6 +5,11 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
 {
     public static class ValidationTestHelper
     {
+        /// <summary>
+        /// Метод проверяет сколько правильных ответов дал пользователь
+        /// </summary>
+        /// <param name="questions"></param>
+        /// <returns></returns>
         public static int GetCountCorrectlyAnsweredQuestion(ObservableCollection<QuestionWithCorrectAnswer> questions)
         {
             int countCorrectQuestion = 0;

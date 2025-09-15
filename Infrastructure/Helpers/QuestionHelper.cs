@@ -8,6 +8,13 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
     public static class QuestionHelper
     {
         private static int _questionId = 0;
+
+        /// <summary>
+        /// Создаёт question в зависимости от типа
+        /// </summary>
+        /// <param name="questionType"></param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public static IQuestion GetQuestion(QuestionTypeEnum questionType)
         {
             switch (questionType)

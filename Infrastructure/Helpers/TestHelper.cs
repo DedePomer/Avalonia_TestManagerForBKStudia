@@ -8,6 +8,10 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
 {
     public static class TestHelper
     {
+        /// <summary>
+        /// Метод создаёт
+        /// </summary>
+        /// <returns></returns>
         public static TestModel CreateTest()
         {
             return new TestModel()
@@ -34,6 +38,11 @@ namespace Avalonia_TestManagerForBKStudia.Infrastructure.Helpers
             };
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="path">Путь к папке где хранятся тесты</param>
+        /// <returns></returns
         public static ObservableCollection<TestModel> CreateTestCollection(string? path)
         {
             if (path == default)
